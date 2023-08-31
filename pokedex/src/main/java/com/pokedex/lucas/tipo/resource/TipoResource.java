@@ -1,6 +1,7 @@
 package com.pokedex.lucas.tipo.resource;
 
 import com.pokedex.lucas.tipo.repository.dto.RelTipoDanoDobradoDTO;
+import com.pokedex.lucas.tipo.repository.dto.RelTipoFracoContraDTO;
 import com.pokedex.lucas.tipo.repository.dto.TipoDTO;
 import com.pokedex.lucas.tipo.repository.dto.TipoForm;
 import com.pokedex.lucas.tipo.service.TipoInserirService;
@@ -13,7 +14,6 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
-import lombok.Getter;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
 import java.util.List;
@@ -44,5 +44,12 @@ public class TipoResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public RelTipoDanoDobradoDTO pesquisarTiposDanoDobrado(@PathParam("id") Long id){
 		return tipoPesquisarService.buscarTiposDanoDobrado(id);
+	}
+
+	@Path("/fraqueza/{id}")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public RelTipoFracoContraDTO pesquisarTiposFraqueza(@PathParam("id") Long id){
+		return tipoPesquisarService.buscarTiposFraqueza(id);
 	}
 }

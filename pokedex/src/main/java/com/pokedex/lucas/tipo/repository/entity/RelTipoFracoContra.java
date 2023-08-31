@@ -21,7 +21,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "rel_tipofraqueza")
-public class RelTipoFraqueza {
+public class RelTipoFracoContra {
 
 	@Id
 	@SequenceGenerator(name="seq_reltipofraqueza", sequenceName = "seq_reltipofraqueza", allocationSize = 1)
