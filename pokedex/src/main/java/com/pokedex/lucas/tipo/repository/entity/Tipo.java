@@ -1,4 +1,4 @@
-package com.pokedex.lucas.tipo.entity;
+package com.pokedex.lucas.tipo.repository.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

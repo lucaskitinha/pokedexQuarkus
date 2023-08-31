@@ -1,4 +1,4 @@
-package com.pokedex.lucas.tipo.entity;
+package com.pokedex.lucas.tipo.repository.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,17 +20,17 @@ import lombok.Setter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "rel_tiposemdano")
-public class RelTipoSemDano {
+@Table(name = "rel_tipofraqueza")
+public class RelTipoFracoContra {
 
 	@Id
-	@SequenceGenerator(name="seq_reltiposemdano", sequenceName = "seq_reltiposemdano", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_reltiposemdano")
+	@SequenceGenerator(name="seq_reltipofraqueza", sequenceName = "seq_reltipofraqueza", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_reltipofraqueza")
 	private Long id;
 	@ManyToOne
 	@JoinColumn(name= "idTipo")
 	private Tipo tipo;
 	@ManyToOne
-	@JoinColumn(name= "idTipoSemDano")
-	private Tipo tipoSemDano;
+	@JoinColumn(name= "idTipoFraqueza")
+	private Tipo tipoFraqueza;
 }
