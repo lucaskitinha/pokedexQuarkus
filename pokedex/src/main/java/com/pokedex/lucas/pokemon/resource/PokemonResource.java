@@ -10,6 +10,7 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
 import java.awt.*;
 
@@ -21,7 +22,7 @@ public class PokemonResource {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Pokemon inserirPokemon(PokemonForm pokemonForm){
+	public Pokemon inserirPokemon(@RequestBody PokemonForm pokemonForm){
 		return pokemonInserirService.inserirPokemon(pokemonForm);
 	}
 }

@@ -25,7 +25,9 @@ public class Pokemon {
 	private Long id;
 	private String nome;
 	private Long numeroDex;
-	private String apelido;
+	private String habilidades;
+	private String idsEvolucoes;
+	private String categoria;
 	private String descricao;
 	private Float altura;
 	private Float peso;

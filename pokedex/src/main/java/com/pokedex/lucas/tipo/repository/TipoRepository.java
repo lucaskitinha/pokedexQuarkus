@@ -12,4 +12,9 @@ public class TipoRepository implements PanacheRepository<Tipo> {
 	public List<Tipo> buscarTodosOsTipos(){
 		return findAll().list();
 	}
+
+	public Tipo pesquisarTipoPorNome(String nome){
+		return find("nome", nome).firstResult();
+	}
+
 }
