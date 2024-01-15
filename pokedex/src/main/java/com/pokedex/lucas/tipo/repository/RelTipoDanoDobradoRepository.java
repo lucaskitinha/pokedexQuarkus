@@ -9,7 +9,11 @@ import java.util.List;
 @ApplicationScoped
 public class RelTipoDanoDobradoRepository implements PanacheRepository<RelTipoDanoDobrado> {
 
-	public List<RelTipoDanoDobrado> pesquisarTiposDanoDobradoPorId(Long id){
+	public List<RelTipoDanoDobrado> pesquisarTiposDaDanoDobradoPorId(Long id){
 		return find("tipo.id in ?1", id).list();
+	}
+
+	public List<RelTipoDanoDobrado> pesquisarTiposSofreDanoDobradoPorId(Long id){
+		return find("tipoDanoDobrado.id in ?1", id).list();
 	}
 }

@@ -13,9 +13,9 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @RegisterForReflection
-public class RelTipoDanoDobradoDTO {
+public class RelTipoDTO {
 
 	private Long id;
 	private String tipo;
-	private List<TipoDTO> tipoDanoDobrado;
+	private List<TipoDTO> tipoRel;
 }

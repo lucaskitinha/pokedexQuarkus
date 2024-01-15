@@ -1,7 +1,6 @@
 package com.pokedex.lucas.tipo.resource;
 
-import com.pokedex.lucas.tipo.repository.dto.RelTipoDanoDobradoDTO;
-import com.pokedex.lucas.tipo.repository.dto.RelTipoFracoContraDTO;
+import com.pokedex.lucas.tipo.repository.dto.RelTipoDTO;
 import com.pokedex.lucas.tipo.repository.dto.TipoDTO;
 import com.pokedex.lucas.tipo.repository.dto.TipoForm;
 import com.pokedex.lucas.tipo.service.TipoInserirService;
@@ -42,14 +41,42 @@ public class TipoResource {
 	@Path("/danoDobrado/{id}")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public RelTipoDanoDobradoDTO pesquisarTiposDanoDobrado(@PathParam("id") Long id){
-		return tipoPesquisarService.buscarTiposDanoDobrado(id);
+	public RelTipoDTO pesquisarTiposDaDanoDobrado(@PathParam("id") Long id){
+		return tipoPesquisarService.buscarTiposDaDanoDobrado(id);
 	}
 
-	@Path("/fraqueza/{id}")
+	@Path("/sofreDanoEmDobro/{id}")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public RelTipoFracoContraDTO pesquisarTiposFraqueza(@PathParam("id") Long id){
-		return tipoPesquisarService.buscarTiposFraqueza(id);
+	public RelTipoDTO pesquisarTiposSofreDanoDobrado(@PathParam("id") Long id){
+		return tipoPesquisarService.buscarTiposSofreDanoDobrado(id);
+	}
+
+	@Path("/fracoContra/{id}")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public RelTipoDTO pesquisarTiposFracoContra(@PathParam("id") Long id){
+		return tipoPesquisarService.buscarTiposFracoContra(id);
+	}
+
+	@Path("/resistente/{id}")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public RelTipoDTO pesquisarTiposResistente(@PathParam("id") Long id){
+		return tipoPesquisarService.buscarTiposResistente(id);
+	}
+
+	@Path("/imunidade/{id}")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public RelTipoDTO pesquisarTiposImunidade(@PathParam("id") Long id){
+		return tipoPesquisarService.buscarTiposImunidade(id);
+	}
+
+	@Path("/semDano/{id}")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public RelTipoDTO pesquisarTiposSemDano(@PathParam("id") Long id){
+		return tipoPesquisarService.buscarTiposSemDano(id);
 	}
 }
