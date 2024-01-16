@@ -1,6 +1,7 @@
 package com.pokedex.lucas.pokemon.service;
 
 import com.pokedex.lucas.pokemon.repository.PokemonRepository;
+import com.pokedex.lucas.pokemon.repository.dto.PokemonDTO;
 import com.pokedex.lucas.pokemon.repository.dto.PokemonForm;
 import com.pokedex.lucas.pokemon.repository.entity.Pokemon;
 import com.pokedex.lucas.tipo.repository.RelPokemonTipoRepository;
@@ -28,13 +29,13 @@ public class PokemonInserirService {
 	TipoRepository tipoRepository;
 
 	@Transactional
-	public Pokemon inserirPokemon(PokemonForm pokemonForm){
+	public PokemonDTO inserirPokemon(PokemonForm pokemonForm){
 
 		Pokemon pokemon = pokemonMapper.paraEntidade(pokemonForm);
 		pokemonRepository.persist(pokemon);
 		var tipos = inserirRelacionamento(pokemonForm.getTipo1(),pokemonForm.getTipo2(),pokemon);
 
-		return pokemon;
+		return pokemonMapper.paraDto(pokemon,tipos);
 	}
 
 	private List<Tipo> inserirRelacionamento(String tipo1, String tipo2, Pokemon pokemon){
