@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Builder
 @Data
 @NoArgsConstructor
@@ -15,11 +17,14 @@ public class PokemonForm {
 
 	private String nome;
 	private Long numeroDex;
-	private String apelido;
+	private List<String> habilidades;
+	private List<Long> idsEvolucoes;
+	private String categoria;
 	private String descricao;
 	private Float altura;
 	private Float peso;
 	private String tipo1;
 	private String tipo2;
+	private Long geracao;
 
 }

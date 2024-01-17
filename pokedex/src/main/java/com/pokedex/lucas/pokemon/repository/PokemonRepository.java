@@ -13,5 +13,4 @@ public class PokemonRepository implements PanacheRepository<Pokemon> {
 		return findAll().list();
 	}
 
-
 }
