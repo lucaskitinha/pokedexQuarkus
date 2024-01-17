@@ -2,6 +2,8 @@ package com.pokedex.lucas.pokemon.service;
 
 import com.pokedex.lucas.pokemon.repository.PokemonRepository;
 import com.pokedex.lucas.pokemon.repository.dto.PokemonDTO;
+import com.pokedex.lucas.pokemon.repository.dto.PokemonFiltro;
+import com.pokedex.lucas.pokemon.repository.dto.PokemonTabelaDTO;
 import com.pokedex.lucas.tipo.repository.TipoRepository;
 import com.pokedex.lucas.tipo.repository.dto.TipoDTO;
 import com.pokedex.lucas.tipo.service.mapper.TipoMapper;
@@ -32,5 +34,9 @@ public class PokemonPesquisarService {
 			pokemonDTO.setTipos(tipos);
 		});
 		return listaPokemon;
+	}
+
+	public List<PokemonTabelaDTO> pesquisarPokemonsPorFiltros(PokemonFiltro filtro){
+		return pokemonRepository.pesquisarPokemonPorFiltro(filtro);
 	}
 }

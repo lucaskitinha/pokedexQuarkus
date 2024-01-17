@@ -1,12 +1,15 @@
 package com.pokedex.lucas.pokemon.resource;
 
 import com.pokedex.lucas.pokemon.repository.dto.PokemonDTO;
+import com.pokedex.lucas.pokemon.repository.dto.PokemonFiltro;
 import com.pokedex.lucas.pokemon.repository.dto.PokemonForm;
+import com.pokedex.lucas.pokemon.repository.dto.PokemonTabelaDTO;
 import com.pokedex.lucas.pokemon.repository.entity.Pokemon;
 import com.pokedex.lucas.pokemon.service.PokemonInserirService;
 import com.pokedex.lucas.pokemon.service.PokemonPesquisarService;
 import com.pokedex.lucas.tipo.repository.dto.TipoDTO;
 import jakarta.inject.Inject;
+import jakarta.ws.rs.BeanParam;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -31,9 +34,16 @@ public class PokemonResource {
 		return pokemonInserirService.inserirPokemon(pokemonForm);
 	}
 
+	@Path("/todos")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<PokemonDTO> pesquisarTodosOsPokemons(){
 		return pokemonPesquisarService.pesquisarTodosPokemons();
+	}
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<PokemonTabelaDTO> pesquisarPokemonsPorFiltro(@BeanParam PokemonFiltro filtro){
+		return pokemonPesquisarService.pesquisarPokemonsPorFiltros(filtro);
 	}
 }
