@@ -25,5 +25,6 @@ public class PokemonForm {
 	private Float peso;
 	private String tipo1;
 	private String tipo2;
+	private Long geracao;
 
 }

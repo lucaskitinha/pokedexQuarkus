@@ -31,4 +31,5 @@ public class Pokemon {
 	private String descricao;
 	private Float altura;
 	private Float peso;
+	private Long geracao;
 }

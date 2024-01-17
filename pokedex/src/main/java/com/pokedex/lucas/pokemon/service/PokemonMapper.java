@@ -30,6 +30,7 @@ public class PokemonMapper {
 				.peso(pokemonForm.getPeso())
 				.descricao(pokemonForm.getDescricao())
 				.numeroDex(pokemonForm.getNumeroDex())
+				.geracao(pokemonForm.getGeracao())
 				.build();
 	}
 
@@ -45,6 +46,7 @@ public class PokemonMapper {
 				.descricao(pokemon.getDescricao())
 				.categoria(pokemon.getCategoria())
 				.tipos(tipoMapper.paraListaDTO(tipos))
+				.geracao(pokemon.getGeracao())
 				.build();
 	}
 

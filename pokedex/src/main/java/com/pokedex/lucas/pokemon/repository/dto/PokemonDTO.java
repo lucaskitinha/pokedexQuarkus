@@ -22,4 +22,5 @@ public class PokemonDTO {
 	private Float altura;
 	private Float peso;
 	private List<TipoDTO> tipos;
+	private Long geracao;
 }
