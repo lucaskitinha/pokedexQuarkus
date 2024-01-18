@@ -1,5 +1,6 @@
 package com.pokedex.lucas.pokemon.service;
 
+import com.pokedex.lucas.pokemon.repository.dto.EvolucaoDTO;
 import com.pokedex.lucas.pokemon.repository.dto.PokemonDTO;
 import com.pokedex.lucas.pokemon.repository.dto.PokemonForm;
 import com.pokedex.lucas.pokemon.repository.entity.Pokemon;
@@ -47,6 +48,14 @@ public class PokemonMapper {
 				.categoria(pokemon.getCategoria())
 				.tipos(tipoMapper.paraListaDTO(tipos))
 				.geracao(pokemon.getGeracao())
+				.build();
+	}
+
+	public EvolucaoDTO paraEvolucaoDto(Pokemon pokemon){
+		return EvolucaoDTO.builder()
+				.id(pokemon.getId())
+				.nome(pokemon.getNome())
+				.numeroDex(pokemon.getNumeroDex())
 				.build();
 	}
 

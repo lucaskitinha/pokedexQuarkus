@@ -14,6 +14,7 @@ import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
@@ -39,6 +40,13 @@ public class PokemonResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<PokemonDTO> pesquisarTodosOsPokemons(){
 		return pokemonPesquisarService.pesquisarTodosPokemons();
+	}
+
+	@Path("/{id}")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public PokemonDTO pesquisarPokemonPorId(@PathParam("id") Long id){
+		return pokemonPesquisarService.pesquisarPokemonPorId(id);
 	}
 
 	@GET

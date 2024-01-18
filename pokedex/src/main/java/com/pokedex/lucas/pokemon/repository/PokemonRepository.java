@@ -8,7 +8,6 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.Query;
 import org.apache.commons.lang3.StringUtils;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -63,6 +62,10 @@ public class PokemonRepository implements PanacheRepository<Pokemon> {
 		});
 
 		return mapToDTO(query.getResultList());
+	}
+
+	public Pokemon pesquisarPokemonPorId(Long idPokemon){
+		return findById(idPokemon);
 	}
 
 	private List<PokemonTabelaDTO> mapToDTO(List<Object[]> resultList) {
