@@ -1,7 +1,10 @@
 package com.pokedex.lucas.pokemon.service;
 
 import com.pokedex.lucas.pokemon.repository.PokemonRepository;
+import com.pokedex.lucas.pokemon.repository.dto.EvolucaoDTO;
 import com.pokedex.lucas.pokemon.repository.dto.PokemonDTO;
+import com.pokedex.lucas.pokemon.repository.dto.PokemonFiltro;
+import com.pokedex.lucas.pokemon.repository.dto.PokemonTabelaDTO;
 import com.pokedex.lucas.tipo.repository.TipoRepository;
 import com.pokedex.lucas.tipo.repository.dto.TipoDTO;
 import com.pokedex.lucas.tipo.service.mapper.TipoMapper;
@@ -10,7 +13,6 @@ import jakarta.inject.Inject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @ApplicationScoped
 public class PokemonPesquisarService {
@@ -32,5 +34,26 @@ public class PokemonPesquisarService {
 			pokemonDTO.setTipos(tipos);
 		});
 		return listaPokemon;
+	}
+
+	public PokemonDTO pesquisarPokemonPorId(Long idPokemon){
+		var pokemonDTO = pokemonMapper.paraDto(pokemonRepository.pesquisarPokemonPorId(idPokemon), new ArrayList<>());
+		List<TipoDTO> tipos = tipoMapper.paraListaDTO(tipoRepository.pesquisarTiposPorIdPokemon(idPokemon));
+		pokemonDTO.setTipos(tipos);
+
+		List<EvolucaoDTO> evolucoes = new ArrayList<>();
+		pokemonDTO.getIdsEvolucoes().forEach(idEvolucao -> {
+			var evolucaoDTO = pokemonMapper.paraEvolucaoDto(pokemonRepository.pesquisarPokemonPorId(Long.valueOf(idEvolucao)));
+			List<TipoDTO> tipoEvolucao = tipoMapper.paraListaDTO(tipoRepository.pesquisarTiposPorIdPokemon(Long.valueOf(idEvolucao)));
+			evolucaoDTO.setTipos(tipoEvolucao);
+			evolucoes.add(evolucaoDTO);
+		});
+		pokemonDTO.setEvolucoes(evolucoes);
+
+		return pokemonDTO;
+	}
+
+	public List<PokemonTabelaDTO> pesquisarPokemonsPorFiltros(PokemonFiltro filtro){
+		return pokemonRepository.pesquisarPokemonPorFiltro(filtro);
 	}
 }
