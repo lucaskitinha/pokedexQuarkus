@@ -1,2 +1,2 @@
 # pokedexQuarkus
-Criando pokedex pokemon utilizando quarkus
+Criando api para pokedex pokemon utilizando quarkus
